@@ -1,4 +1,5 @@
 import { navLinks, signature, themeConfig, type Theme } from '../data/navigation';
+import { useScrolled } from '../hooks/useScrolled';
 
 interface NavbarProps {
   theme: Theme;
@@ -24,10 +25,13 @@ function SunIcon() {
 
 export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
   const config = themeConfig[theme];
+  const scrolled = useScrolled();
   return (
-    <nav className="site-nav" aria-label="Primary navigation">
+    <nav className={`site-nav${scrolled ? ' scrolled' : ''}`} aria-label="Primary navigation">
       <div className="wrap site-nav-inner">
-        <span className="status">{signature}</span>
+        <button type="button" className="status status-button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0 })}>
+          {signature}
+        </button>
         <div className="nav-links">
         {navLinks.map((link) => (
           <a key={link.href} href={link.href}>
