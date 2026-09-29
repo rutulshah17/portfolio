@@ -58,8 +58,27 @@
     .skip:focus { top: 1rem; }
     .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
     .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
       border-bottom: 1px solid var(--line);
+      transition: background-color .25s ease, box-shadow .25s ease;
     }
+    .site-nav.scrolled {
+      background: color-mix(in srgb, var(--surface) 90%, transparent);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 32px rgba(18, 31, 39, .10);
+    }
+    .status-button {
+      background: none;
+      border: 0;
+      padding: 0;
+      padding-top: 3px;
+      color: inherit;
+      cursor: pointer;
+    }
+    .status-button:hover { color: var(--accent); }
     .site-nav-inner {
       min-height: 78px;
       display: flex;
