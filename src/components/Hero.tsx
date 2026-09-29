@@ -37,7 +37,7 @@ export default function Hero() {
           <a className="btn primary" href={hero.primaryAction.href}>
             {hero.primaryAction.label} <span aria-hidden="true">{hero.primaryAction.arrow}</span>
           </a>
-          <a className="btn" href={resumePdf} download>
+          <a className="btn" href={resumePdf} download="Rutul Shah - Sr Full Stack Engineer.pdf">
             {hero.resumeAction.label}
             <DownloadIcon />
           </a>
